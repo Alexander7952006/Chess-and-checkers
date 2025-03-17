@@ -83,7 +83,16 @@ class Normal(Checker):
                                      newpos[1] + between_y))
                 if eatable.color != self.color:
                     moves.append((newpos, [(newpos[0] + between_x, newpos[1] + between_y)]))
-        return moves
+                    
+        cleared_moves = []
+        for tup in moves:
+            if tup[1] != None:
+                cleared_moves.append(tup)
+        if len(cleared_moves) > 0:
+            return cleared_moves
+        else:
+            return moves
+            
 
 class Queen(Checker):
     """Дочерний класс класса Checker для дамки.
@@ -161,7 +170,14 @@ class Queen(Checker):
                     if arg == 0:
                         moves.append((new_pos, eated))
 
-        return moves
+        cleared_moves = []
+        for tup in moves:
+            if tup[1] != None:
+                cleared_moves.append(tup)
+        if len(cleared_moves) > 0:
+            return cleared_moves
+        else:
+            return moves
 
 
 class Board(object):
