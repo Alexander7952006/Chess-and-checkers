@@ -189,11 +189,13 @@ class Board(object):
 
     def __init__(self):
         """Инициализация доски"""
+        
         self.field = [[None for _ in range(8)] for _ in range(8)]
         self.setup_checkers()
 
     def setup_checkers(self):
         """Метод для расстановки фигур на поле"""
+        
         for string in [0, 1, 2]:
             for col in range(1, 8, 2):
                 self.field[string][col - string % 2] = Normal('black')
@@ -203,6 +205,7 @@ class Board(object):
 
     def display(self):
         """Метод для вывода поля в консоль"""
+        
         print(' ')
         print("   a b c d e f g h\n")
         for indx, row in enumerate(self.field):
